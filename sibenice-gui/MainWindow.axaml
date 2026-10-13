@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="SibeniceGui.MainWindow"
+        Title="Šibenice"
+        Width="960" Height="760"
+        MinWidth="760" MinHeight="650"
+        WindowStartupLocation="CenterScreen"
+        Background="#F4F1EA">
+    <Grid RowDefinitions="Auto,*,Auto" Margin="32">
+        <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,24">
+            <StackPanel Spacing="4">
+                <TextBlock Text="ŠIBENICE" FontSize="15" FontWeight="Bold" Foreground="#B64A35" />
+                <TextBlock Text="Uhodni skryté slovo" FontSize="30" FontWeight="Bold" Foreground="#242922" />
+            </StackPanel>
+            <Button Grid.Column="1" x:Name="NewGameButton" Content="Nová hra" Click="NewGame_Click"
+                    VerticalAlignment="Center" Padding="20,11" Background="#242922" Foreground="White" />
+        </Grid>
+
+        <Border Grid.Row="1" Background="White" CornerRadius="12" Padding="24">
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="28">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="20">
+                    <Canvas x:Name="HangmanCanvas" Width="300" Height="250" />
+                    <Border Background="#F4F1EA" CornerRadius="8" Padding="14,8">
+                        <TextBlock x:Name="LivesText" Text="Zbývá 7 pokusů" FontSize="16" FontWeight="SemiBold" Foreground="#393F36" />
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="22">
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="HÁDANÉ SLOVO" FontSize="12" FontWeight="Bold" Foreground="#85877E" />
+                        <TextBlock x:Name="WordText" Text="_ _ _ _ _" FontSize="34" FontWeight="Bold"
+                                   Foreground="#242922" HorizontalAlignment="Center" />
+                    </StackPanel>
+                    <TextBlock x:Name="MessageText" Text="Vyber písmeno a zkus své štěstí." FontSize="16"
+                               Foreground="#555A50" TextWrapping="Wrap" HorizontalAlignment="Center" />
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="PÍSMENA" FontSize="12" FontWeight="Bold" Foreground="#85877E" />
+                        <WrapPanel x:Name="KeyboardPanel" HorizontalAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <TextBlock Grid.Row="2" Text="Slova se načítají ze souboru slova.txt" FontSize="13"
+                   Foreground="#85877E" HorizontalAlignment="Center" Margin="0,18,0,0" />
+    </Grid>
+</Window>
